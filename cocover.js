@@ -87,19 +87,22 @@
         css = css.join('');
 
         var head = document.head || document.getElementsByTagName('head')[0];
-        var style = document.createElementNS('http://www.w3.org/1999/xhtml', 'style');
+        var style = document.createElement('style');
         style.type = 'text/css';
         style.setAttribute('id', cocoClass);
         if (style.styleSheet) {
             style.styleSheet.cssText = css;
         } else {
-            style.appendChild(document.createTextNode(css));
+            var node = document.createTextNode(css);
+            style.appendChild(node);
         }
 
         head.appendChild(style);
     }
 
     function destroy (a) {
+        if (!cocoClass) return;
+
         if (!a) {
             $('#' + cocoClass).remove();
             $('.' + cocoClass + '-span').remove();
@@ -112,13 +115,13 @@
     }
 
     function start () {
-        if ($(document.head).find('#' + cocoClass + '-start').length) {
+        if (!cocoClass || $(document.head).find('#' + cocoClass + '-start').length) {
             return;
         }
 
         var css = '.' + cocoClass + '-span { visibility: visible !important; }';
         var head = document.head || document.getElementsByTagName('head')[0];
-        var style = document.createElementNS('http://www.w3.org/1999/xhtml', 'style');
+        var style = document.createElement('style');
         style.type = 'text/css';
         style.setAttribute('id', cocoClass + '-start');
         if (style.styleSheet) {

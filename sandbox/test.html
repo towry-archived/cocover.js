@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=8">
+  <meta charset="utf-8">
+  <title>css z-index with position</title>
+<style> 
+body {
+	height: 2000px;
+}
+ 
+.case {
+	position: relative;
+}
+ 
+.a,.b{
+	height: 100px;
+}
+ 
+.a {
+  width: 150px;
+	background-color: red;
+}
+ 
+.b {
+  width: 100px;
+	background-color: blue;
+	margin-top: -30px;
+}
+ 
+.case-2 .a {
+	z-index: 3;
+}
+ 
+.case-2 .b {
+	z-index: 2;
+}
+ 
+.case-3 .a {
+	position: relative;
+}
+ 
+.case-3 .b {
+ 
+}
+ 
+.case-4 .a {
+	position: absolute;
+	margin-top:20px;
+}
+.case-4 .b {
+	margin-top: 20px;
+}
+ 
+.case-5 .a {
+	position: fixed;
+	left: 90px;;
+	top: 20px;
+}
+ 
+.case-5 .b {
+  display: none;
+	position: absolute;
+}
+ 
+.a {
+	position: absolute;
+	z-index: 5;
+    top: 0;
+    left: 0;
+}
+.case-6 .b .ba {
+	width: 50px;
+	height: 50px;
+	background: green;
+	position: absolute;
+	z-index: 6;
+}
+</style>
+</head>
+<body>
+	<div class="case case-6">
+		<p id="case6">only position:relative;:</p>
+		<div class='b'>
+			b
+			<div class="ba"></div>
+		</div>
+	</div>
+    <div class="a">a</div>
+	
+</body>
+</html>

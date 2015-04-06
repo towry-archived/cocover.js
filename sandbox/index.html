@@ -20,9 +20,9 @@
             height: 0;
         }
         .item {
+            position: relative;
             width: 80px;
             height: 80px;
-            border: 4px solid #333;
             border-color: rgba(0, 0, 0, .3);
             background: #06c;
             margin: 5px;
@@ -38,23 +38,45 @@
         }
         .draggable {
             cursor: move;
-            z-index: 999;
+            z-index: 99;
+        }
+
+        #log {
+            position: fixed;
+            right: 10px;
+            top: 0;
+            color: green;
+        }
+        #log p {
+            padding: 0;
+            margin: 5px;
+        }
+        .span {
+            width: 100%;
+            height: 100%;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: red;
+            position: absolute;
+            display: block;
+            z-index: 9999;
         }
     </style>
 </head>
 <body>
     <div id="wrap">
-        <div class="item item-1">1</div>
+        <div class="item item-1">1<div class="span"></div></div>
         <div class="item item-2">2</div>
         <div class="item item-3">3</div>
         <div class="item item-4">4</div>
         <div class="item item-5">5</div>
+        <div class="handle draggable">
     </div>
-    <div class="handle draggable">
     </div>
     <div>
         <p id="p">Hello != World</p>
     </div>
+    <div id="log"></div>
 
     <script src="assets/jquery-1.8.3.min.js"></script>
     <script src="assets/jquery-ui.js"></script>
@@ -62,11 +84,18 @@
     <script>
         (function ($) {
             $(".draggable").draggable();
-            $('.item').cocover('over');
+            // $('.item').cocover('over');
             $(".item").on('mouseover', function (e) {
-                console.log('over ' + $(this).text());
+                log('over ' + $(this).text());
             });
             $('#p').cocover('over');
+            // cocover.start();
+
+            var _log = $("#log");
+            function log (m) {
+                m = $('<p>' + m + ' ' + (new Date()).getMilliseconds() + '</p>');
+                _log.prepend(m);
+            }
         }(jQuery));
     </script>
 </body>
