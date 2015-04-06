@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cocover - sandbox</title>
+    <link rel="stylesheet" href="assets/jquery-ui.css">
+    <style>
+        #wrap {
+            width: 960px;
+            max-width: 960px;
+            margin: 0 auto;
+            *text-align: center;
+            text-align: -moz-center;
+            text-align: -webkit-center;
+        }
+        #wrap::after {
+            content: '';
+            clear: both;
+            display: block;
+            height: 0;
+        }
+        .item {
+            width: 80px;
+            height: 80px;
+            border: 4px solid #333;
+            border-color: rgba(0, 0, 0, .3);
+            background: #06c;
+            margin: 5px;
+            float: left;
+        }
+        .handle {
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            background: #90c;
+            border: 4px solid #000;
+            border-color: rgba(0, 0, 0, .3);
+        }
+        .draggable {
+            cursor: move;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="item item-1">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item item-4">4</div>
+        <div class="item item-5">5</div>
+    </div>
+    <div class="handle draggable">
+    </div>
+    <div>
+        <p id="p">Hello != World</p>
+    </div>
+
+    <script src="assets/jquery-1.8.3.min.js"></script>
+    <script src="assets/jquery-ui.js"></script>
+    <script src="../cocover.js"></script>
+    <script>
+        (function ($) {
+            $(".draggable").draggable();
+            $('.item').cocover('over');
+            $(".item").on('mouseover', function (e) {
+                console.log('over ' + $(this).text());
+            });
+            $('#p').cocover('over');
+        }(jQuery));
+    </script>
+</body>
+</html>

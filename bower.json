@@ -1,0 +1,26 @@
+{
+  "name": "cocover",
+  "version": "0.1.0",
+  "authors": [
+    "towry <tovvry@gmail.com>"
+  ],
+  "main": "cocover.js",
+  "keywords": [
+    "mouseover",
+    "mouseenter",
+    "jquery-plugin"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/towry/cocover.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+      "jquery": "~1.9.2",
+      "jquery-ui": "~1.8.2"
+  }
+}
