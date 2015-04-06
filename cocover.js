@@ -54,13 +54,15 @@
 
     function createSpan (a) {
         var o = span || $('<span class="' + cocoClass + '-span"></span>');
+        var m, n;
 
         a.each(function (i, e) {
             m = $(e);
             if (m.css('position') === '' || m.css('position') == 'static') {
                 m.css('position', 'relative');
             }
-            m.append(o.clone());
+            n = o.clone();
+            m.append(n);
         });
     }
 
@@ -105,7 +107,7 @@
         } else {
             a = $(a);
             a.removeClass(cocoClass);
-            $('.' + cocoClass + '-span').remove();
+            a.find('.' + cocoClass + '-span').remove();
         }
     }
 
