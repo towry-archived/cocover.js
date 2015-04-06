@@ -11,6 +11,8 @@ event wont triggered. So if you want to make that work, you must calculate all t
 while mouse move, if the elements is few, that's ok, but if the elements is huge, you have to for loop many
 times in every mouse move, that's not efficient.
 
+You must add `<meta http-equiv="X-UA-Compatible" content="IE=8">` to make it work under IE8.
+
 ## API
 
 ### #over
