@@ -140,7 +140,7 @@
 
     $.fn.cocover = function (m) {
         if (! (m in cocover) || typeof cocover[m] !== 'function') {
-            return;
+            return this;
         }
 
         if (m === 'over') {
@@ -154,6 +154,8 @@
         else {
             cocover[m].call(cocover);
         }
+
+        return this;
     }
     
     return cocover;
